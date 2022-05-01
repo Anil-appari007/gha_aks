@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "anilsdemoaks-ded1"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "anilsdemoaks-ded1"
+  template:
+    metadata:
+      labels:
+        app: "anilsdemoaks-ded1"
+    spec:
+      containers:
+        - name: "anilsdemoaks-ded1"
+          image: "anilsacr.azurecr.io/anilsdemoaks"
+          ports:
+          - containerPort: 80

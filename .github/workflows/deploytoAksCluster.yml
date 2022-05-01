@@ -30,6 +30,12 @@ jobs:
     #     docker build "$GITHUB_WORKSPACE/." -f  "." -t anilsacr.azurecr.io/anilsdemoaks:${{ github.sha }} --label dockerfile-path=.
     #     docker push anilsacr.azurecr.io/anilsdemoaks:${{ github.sha }}
     
+    - uses: azure/docker-login@v1
+      with:
+        login-server: anilsacr.azurecr.io
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
+
     - name: Build and push image to ACR
       id: build-image
       run: |

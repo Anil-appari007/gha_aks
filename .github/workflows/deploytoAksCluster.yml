@@ -33,7 +33,7 @@ jobs:
     - name: Build and push image to ACR
       id: build-image
       run: |
-        docker buid -t anilsacr.azurecr.io/anilsdemoaks:${{ github.sha }} .
+        docker build -t anilsacr.azurecr.io/anilsdemoaks:${{ github.sha }} .
         docker push anilsacr.azurecr.io/anilsdemoaks:${{ github.sha }}
 
 

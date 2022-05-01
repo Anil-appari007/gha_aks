@@ -10,13 +10,13 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Create ACR
-      id: create-acr
-      run: |
-        az acr create -n anilsacr -g anilsacrb6f3-rg --location "Central India" --sku Standard --admin-enabled
-        echo "::set-output name=acr_username::`az acr credential show -n anilsacr --query username | xargs`"
-        echo "::set-output name=acr_password::`az acr credential show -n anilsacr --query passwords[0].value | xargs`"
-        echo "::add-mask::`az acr credential show -n anilsacr --query passwords[0].value | xargs`"
+    # - name: Create ACR
+    #   id: create-acr
+    #   run: |
+    #     az acr create -n anilsacr -g anilsacrb6f3-rg --location "Central India" --sku Standard --admin-enabled
+    #     echo "::set-output name=acr_username::`az acr credential show -n anilsacr --query username | xargs`"
+    #     echo "::set-output name=acr_password::`az acr credential show -n anilsacr --query passwords[0].value | xargs`"
+    #     echo "::add-mask::`az acr credential show -n anilsacr --query passwords[0].value | xargs`"
 
     - uses: azure/docker-login@v1
       with:
